@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
 # pylint: disable-msg=line-too-long
+from ConfigParser import ConfigParser
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 
-from fund.credentials import MONGO_HOST
+credentials = ConfigParser()
+credentials.read('credentials.ini')
 
 CONCURRENT_REQUESTS_PER_DOMAIN = 1
 DOWNLOAD_DELAY = 10
@@ -13,7 +15,7 @@ SPIDER_MODULES = ['fund.spiders']
 NEWSPIDER_MODULE = 'fund.spiders'
 
 MONGO = {
-    'host': MONGO_HOST,
+    'host': credentials.get('DEFAULT', 'MONGO_HOST') or 'mongodb://localhost:27017',
     'database': 'scrapedb',
     'collection': 'funds',
 }
