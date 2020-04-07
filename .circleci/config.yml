@@ -16,5 +16,5 @@ workflows:
       - python
 
 notify:
-    webhooks:
-      - url: https://bot.suddi.io/hooks/circle
+  webhooks:
+    - url: https://bot.suddi.io/hooks/circle
