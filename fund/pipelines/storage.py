@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-
 from bson.objectid import ObjectId
 
 from scrapy.conf import settings
 
 from fund.db import DB
 
-class StoragePipeline(object):
+class StoragePipeline():
     def process_item(self, item):
         if settings['TAKE_ACTION'] == settings.get('ACTION', {})['COMPILE_FUNDS']:
             collection = DB[settings.get('MONGO', {})['collection']]

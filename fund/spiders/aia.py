@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from re import findall
 from datetime import date
 from dateutil.relativedelta import relativedelta

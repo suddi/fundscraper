@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from scrapy.item import Field, Item
 
 # pylint: disable-msg=too-many-ancestors

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable-msg=no-name-in-module,import-error
 from distutils.cmd import Command
 from os import getcwd

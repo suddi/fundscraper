@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
-
 from re import findall
 from datetime import datetime
 
 def normalize_string(value, separator=' '):
-    if isinstance(value, basestring):
-        value = unicode(value)
+    if isinstance(value, str):
+        value = str(value)
         return separator.join(value.split())
     return value
 
@@ -21,18 +19,22 @@ def extract_int(value):
 
     if isinstance(value, int):
         return value
-    elif isinstance(value, float):
+
+    if isinstance(value, float):
         return int(round(value))
-    elif isinstance(value, basestring):
+
+    if isinstance(value, str):
         return extract_int_from_float(value)
     return None
 
 def extract_float(value):
     if isinstance(value, float):
         return value
-    elif isinstance(value, int):
+
+    if isinstance(value, int):
         return float(value)
-    elif isinstance(value, basestring):
+
+    if isinstance(value, str):
         value_match = findall(r'[\d\.\,]+', value)
         if value_match:
             value = value_match[0].replace(',', '')
@@ -41,7 +43,7 @@ def extract_float(value):
 
 # pylint: disable-msg=broad-except
 def cast_datetime(value):
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         try:
             return datetime.strptime(value, '%m/%d/%Y')
         except Exception:
@@ -49,3 +51,4 @@ def cast_datetime(value):
                 return datetime.strptime(value, '%m-%d-%Y')
             except ValueError:
                 return None
+    return None

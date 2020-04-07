@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable-msg=line-too-long
 USER_AGENT_LIST = [
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:10.0.2) Gecko/20100101 Firefox/10.0.2',

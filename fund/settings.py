@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-
 # pylint: disable-msg=line-too-long
-from ConfigParser import ConfigParser
+from configparser import ConfigParser
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 

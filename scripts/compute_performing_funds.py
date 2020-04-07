@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from pymongo import DESCENDING
 
 from fund.settings import MONGO, WEIGHTING
@@ -12,7 +10,7 @@ def compute_performing_funds():
     for fund in funds_list:
         performance = 0
 
-        for key, weight in WEIGHTING.iteritems():
+        for key, weight in WEIGHTING.items():
             performance += fund.get(key, 0.0) * weight
         fund['performance'] = performance
 
@@ -20,7 +18,7 @@ def compute_performing_funds():
 
     top = funds.find().sort('performance', DESCENDING).limit(20)
     for count, fund in enumerate(top):
-        print 'Number %d: %s (%f)' % (count, fund['code'], fund['performance'])
+        print('Number %d: %s (%f)' % (count, fund['code'], fund['performance']))
 
 if __name__ == '__main__':
     compute_performing_funds()

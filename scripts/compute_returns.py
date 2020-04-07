@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from datetime import datetime
 from bson.objectid import ObjectId
 from pymongo import DESCENDING
@@ -29,8 +27,8 @@ def get_value(collection, date, direction=0, field='price', iteration=1):
             return get_value(collection, date + (NEXT_DAY * iteration), direction, \
                 field, next_iteration)
         except RuntimeError:
-            print 'ERROR: Collection %s (%d/%d/%d, iteration %d)' % (collection.name, \
-                date.day, date.month, date.year, iteration)
+            print('ERROR: Collection %s (%d/%d/%d, iteration %d)' % (collection.name, \
+                date.day, date.month, date.year, iteration))
             return -1.0
 
     return value[field]
@@ -57,7 +55,7 @@ def compute_returns():
         # time_period = (latest - earliest).days
 
         latest_price = collection.find_one({'date': latest})['price']
-        for name, value in MONTHS.iteritems():
+        for name, value in MONTHS.items():
             month = latest - value
             if month > earliest:
                 price_then = get_value(collection, month)
