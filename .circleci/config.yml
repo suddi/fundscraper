@@ -8,7 +8,6 @@ jobs:
       - checkout
       - run: pip install --user --requirement requirements.txt --requirement test_requirements.txt
       - run: python setup.py lint
-      - run: python setup.py test
 
 workflows:
   version: 2
